@@ -1778,15 +1778,24 @@
             }
         }
 
-        // Replace this function with your actual search logic
-        function searchFunction(query) {
-            // Example: Return mock search results
-            return [
-                'Result 1',
-                'Result 2',
-                'Result 3'
-            ];
+        function performSearch() {
+    var searchTerm = document.getElementById('searchInput').value.toLowerCase();
+
+    var results = document.getElementById('searchResults').innerHTML.split('<br>');
+    var filteredResults = '';
+
+    for (var i = 0; i < results.length; i++) {
+        if (results[i].toLowerCase().includes(searchTerm)) {
+            filteredResults += results[i] + '<br>';
         }
+    }
+
+    if (filteredResults) {
+        document.getElementById('searchResults').innerHTML = filteredResults;
+    } else {
+        document.getElementById('searchResults').innerHTML = 'No results found';
+    }
+}
     </script>
 </body>
 </html>
